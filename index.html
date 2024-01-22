@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      background: linear-gradient(gray, white);
+    }
+
+    #clock {
+      font-size: 2em;
+      background: rgb(66, 65, 65);
+      border-radius: 10px;
+      border: 5px solid black;
+      box-shadow: inset -3px -3px 6px gray,
+      5px -6px 6px gray;
+      font-family: 'Poppins', sans-serif;
+      font-weight: 700;
+      color: cyan;
+      height: 70px;
+      width: 250px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  </style>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+  </style>
+  <title>Clock Application</title>
+</head>
+<body>
+  <div id="clock"></div>
+
+  <script>
+    function update() {
+      const ob = new Date();
+      const hours = ob.getHours().toString().padStart(2, "0")
+      const minutes = ob.getMinutes().toString().padStart(2, "0")
+      const seconds = ob.getSeconds().toString().padStart(2, "0")
+      const status = "PM" 
+      if (hours>=12 && hours <= 11) {
+        status.innerText = "AM";
+        } else if (hours>=12 && hours<24) {
+            status;
+      }
+
+      const time = `${hours}:${minutes}:${seconds} ${status}`;
+      document.getElementById('clock').innerText = time;
+    }
+    setInterval(update, 1000);
+    update();
+  </script>
+</body>
+</html>
